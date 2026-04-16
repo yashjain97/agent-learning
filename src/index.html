@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanban Board</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>Kanban Board</h1>
+    <button id="add-ticket-btn" class="add-btn">+ New Ticket</button>
+  </header>
+
+  <!-- Add Ticket Modal -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <h2>New Ticket</h2>
+      <form id="ticket-form">
+        <label for="ticket-title">Title</label>
+        <input type="text" id="ticket-title" placeholder="Enter ticket title" required maxlength="100">
+        <label for="ticket-desc">Description</label>
+        <textarea id="ticket-desc" placeholder="Enter description (optional)" rows="3" maxlength="500"></textarea>
+        <div class="modal-actions">
+          <button type="button" id="cancel-btn" class="btn-cancel">Cancel</button>
+          <button type="submit" class="btn-submit">Add Ticket</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Kanban Board -->
+  <main class="board" id="board">
+    <section class="column" data-status="backlog">
+      <div class="column-header backlog-header">
+        <span class="column-title">Backlog</span>
+        <span class="ticket-count" data-count="backlog">0</span>
+      </div>
+      <div class="ticket-list" data-status="backlog"></div>
+    </section>
+
+    <section class="column" data-status="todo">
+      <div class="column-header todo-header">
+        <span class="column-title">To Do</span>
+        <span class="ticket-count" data-count="todo">0</span>
+      </div>
+      <div class="ticket-list" data-status="todo"></div>
+    </section>
+
+    <section class="column" data-status="in-progress">
+      <div class="column-header in-progress-header">
+        <span class="column-title">In Progress</span>
+        <span class="ticket-count" data-count="in-progress">0</span>
+      </div>
+      <div class="ticket-list" data-status="in-progress"></div>
+    </section>
+
+    <section class="column" data-status="review">
+      <div class="column-header review-header">
+        <span class="column-title">Review</span>
+        <span class="ticket-count" data-count="review">0</span>
+      </div>
+      <div class="ticket-list" data-status="review"></div>
+    </section>
+
+    <section class="column" data-status="done">
+      <div class="column-header done-header">
+        <span class="column-title">Done</span>
+        <span class="ticket-count" data-count="done">0</span>
+      </div>
+      <div class="ticket-list" data-status="done"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
