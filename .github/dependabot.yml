@@ -1,0 +1,66 @@
+# Dependabot Configuration
+# Docs: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+
+  # ── GitHub Actions ──────────────────────────────────────────────
+  # Keeps workflow action versions up to date (e.g., actions/checkout@v4)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Kolkata"
+    # Group minor + patch updates into a single PR to reduce noise
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    reviewers:
+      - "yash.jain"
+    open-pull-requests-limit: 10
+
+  # ── npm ──────────────────────────────────────────────────────────
+  # Monitors package.json for outdated/vulnerable dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Kolkata"
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+      dev-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "npm"
+    reviewers:
+      - "yash.jain"
+    open-pull-requests-limit: 10
+    # Ignore major version bumps for stability
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]

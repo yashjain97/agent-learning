@@ -1,0 +1,35 @@
+{
+  "name": "agent-learning",
+  "version": "1.0.0",
+  "description": "Learning Agentic Workflow — Kanban board with Copilot customization and security automation",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "http-server src -p 3000 -o",
+    "dev": "http-server src -p 3000 -o -c-1",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write \"src/**/*.{html,css,js}\"",
+    "format:check": "prettier --check \"src/**/*.{html,css,js}\"",
+    "test": "echo \"No tests configured yet\" && exit 0"
+  },
+  "keywords": [
+    "kanban",
+    "drag-and-drop",
+    "copilot",
+    "agent-learning"
+  ],
+  "author": "yash.jain",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.17.1",
+    "helmet": "4.6.0",
+    "cors": "2.8.5"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "eslint": "8.56.0",
+    "prettier": "3.2.4",
+    "nodemon": "2.0.15",
+    "semver": "7.3.5"
+  }
+}
