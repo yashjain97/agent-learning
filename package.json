@@ -22,11 +22,6 @@
   "license": "MIT",
   "dependencies": {
     "express": "4.17.1",
-    "lodash": "4.17.20",
-    "moment": "2.29.1",
-    "axios": "0.21.1",
-    "marked": "4.0.10",
-    "jsonwebtoken": "8.5.1",
     "helmet": "4.6.0",
     "cors": "2.8.5"
   },
@@ -35,10 +30,6 @@
     "eslint": "8.56.0",
     "prettier": "3.2.4",
     "nodemon": "2.0.15",
-    "minimist": "1.2.5",
-    "glob-parent": "5.1.1",
-    "nth-check": "1.0.2",
-    "postcss": "7.0.35",
     "semver": "7.3.5"
   }
 }
